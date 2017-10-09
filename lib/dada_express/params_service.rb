@@ -1,7 +1,7 @@
 module DadaExpress
   class ParamsService
     class << self
-      def process(params = '')
+      def process(params)
         Sign.encode(base_params(params))
       end
 
