@@ -9,11 +9,13 @@ if File.exist?('secret.yaml')
       DadaExpress.configure do |config|
         config.app_key = secret['app_key']
         config.app_secret = secret['app_secret']
+        config.base_url = 'http://newopen.qa.imdada.cn'
       end
     end
 
     it 'return order detail' do
-      result = DadaExpress::Request.new({ order_id: '50554347608522' }).order_detail
+      result = DadaExpress::Request.new({ order_id: '20170210011' }).order_detail
+      puts result
       expect(result['status']).to eq('success')
     end
   end
