@@ -7,11 +7,12 @@ module DadaExpress
     end
 
     def excute(url)
-      @response ||= RestClient.post url, ParamsService.process(@params), { 'Content-Type': 'application/json', 'charset': 'utf-8' }
+      @response ||= RestClient.post url, ParamsService.process(@params), {content_type: :json, accept: :json}
     end
 
     def get_order_detail
       excute(DadaExpress.configuration.base_url + ORDER_DETAIL_PATHNAME)
+      JSON.parse(@response.body)
     end
   end
 end

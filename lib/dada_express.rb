@@ -1,4 +1,5 @@
 require "dada_express/version"
+require "rest-client"
 
 module DadaExpress
   class << self
