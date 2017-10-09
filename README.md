@@ -29,9 +29,26 @@ DadaExpress.configure do |config|
   config.source_id = '33333' # 默认为测试账号'73753'
 end
 
-# Query
-# 现在只支持获取订单详情
-DadaExpress::Request.new({ order_id: 'YOUR ORDER ID' }).get_order_detail
+# Request
+# 获取订单详情
+DadaExpress::Request.new({ order_id: 'YOUR ORDER ID' }).order_detail
+# 获取城市列表
+DadaExpress::Request.new().city_codes
+# 新增订单
+DadaExpress::Request.new({
+  shop_no: '11047059',
+  origin_id: 'AIHEHUO' + Time.now.to_i.to_s,
+  city_code: '021', # 上海
+  cargo_price: 100,
+  is_prepay: 0,
+  expected_fetch_time: 1507533817,
+  receiver_name: '测试人员',
+  receiver_address: '测试地址',
+  receiver_lat: 31.2304,
+  receiver_lng: 121.4737,
+  callback: 'http://www.aihehuo.com',
+  receiver_phone: '1825181XXXX'
+  }).new_order
 ```
 更多信息请参考 [官方文档](http://newopen.imdada.cn/#/development/file/index?_k=5trp03)
 
