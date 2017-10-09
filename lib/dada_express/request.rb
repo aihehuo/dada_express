@@ -10,7 +10,7 @@ module DadaExpress
       @response ||= RestClient.post url, ParamsService.process(@params).to_json, {content_type: :json, accept: :json}
     end
 
-    def get_order_detail
+    def order_detail
       excute(DadaExpress.configuration.base_url + ORDER_DETAIL_PATHNAME)
       JSON.parse(@response.body)
     end

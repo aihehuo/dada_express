@@ -13,7 +13,7 @@ if File.exist?('secret.yaml')
     end
 
     it 'return order detail' do
-      result = DadaExpress::Request.new({ order_id: '50554347608522' }).get_order_detail
+      result = DadaExpress::Request.new({ order_id: '50554347608522' }).order_detail
       expect(result['status']).to eq('success')
     end
   end
